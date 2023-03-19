@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:typed_data';
 
 import 'package:flutter/foundation.dart';
 
@@ -34,14 +33,14 @@ class PlatformFile {
   String? _path;
 
   String? get path {
-    if (kIsWeb) {
-      /// https://github.com/miguelpruivo/flutter_file_picker/issues/751
-      throw '''
-      On web `path` is always `null`,
-      You should access `bytes` property instead,
-      Read more about it [here](https://github.com/miguelpruivo/flutter_file_picker/wiki/FAQ)
-      ''';
-    }
+    // if (kIsWeb) {
+    //   /// https://github.com/miguelpruivo/flutter_file_picker/issues/751
+    //   throw '''
+    //   On web `path` is always `null`,
+    //   You should access `bytes` property instead,
+    //   Read more about it [here](https://github.com/miguelpruivo/flutter_file_picker/wiki/FAQ)
+    //   ''';
+    // }
     return _path;
   }
 

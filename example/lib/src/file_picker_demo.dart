@@ -33,6 +33,7 @@ class _FilePickerDemoState extends State<FilePickerDemo> {
     try {
       _directoryPath = null;
       _paths = (await FilePicker.platform.pickFiles(
+        withData: false,
         type: _pickingType,
         allowMultiple: _multiPick,
         onFileLoading: (FilePickerStatus status) => print(status),
@@ -269,18 +270,17 @@ class _FilePickerDemoState extends State<FilePickerDemo> {
                                                             .map((e) => e.name)
                                                             .toList()[index]
                                                         : _fileName ?? '...');
-                                            final path = kIsWeb
-                                                ? null
-                                                : _paths!
-                                                    .map((e) => e.path)
-                                                    .toList()[index]
-                                                    .toString();
+                                            final path = _paths!
+                                                .map((e) => e.path)
+                                                .toList()[index]
+                                                .toString();
 
                                             return ListTile(
                                               title: Text(
                                                 name,
                                               ),
-                                              subtitle: Text(path ?? ''),
+                                              subtitle:
+                                                  SelectableText(path ?? ''),
                                             );
                                           },
                                           separatorBuilder:
